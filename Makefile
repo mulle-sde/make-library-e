@@ -1,5 +1,4 @@
 PREFIX ?= /usr/local
-DESTDIR ?=
 INSTALLOPTIONS ?=
 BUILD_DIR ?= build
 
@@ -36,10 +35,10 @@ $(BUILD_DIR)/$(LIBRARY): $(OBJECTS)
 endif
 
 install: $(BUILD_DIR)/$(LIBRARY)
-	install $(INSTALLOPTIONS) -d $(DESTDIR)/lib
-	install $(INSTALLOPTIONS) -m 755 $(BUILD_DIR)/$(LIBRARY) $(DESTDIR)/lib
-	install $(INSTALLOPTIONS) -d $(DESTDIR)/include/e
-	install $(INSTALLOPTIONS) -m 644 include/e/e.h $(DESTDIR)/include/e
+	install $(INSTALLOPTIONS) -d $(PREFIX)/lib
+	install $(INSTALLOPTIONS) -m 755 $(BUILD_DIR)/$(LIBRARY) $(PREFIX)/lib
+	install $(INSTALLOPTIONS) -d $(PREFIX)/include/e
+	install $(INSTALLOPTIONS) -m 644 include/e/e.h $(PREFIX)/include/e
 
 clean:
 	rm -rf $(BUILD_DIR)
